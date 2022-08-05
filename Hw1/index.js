@@ -1,6 +1,8 @@
 const filterInputElement = document.querySelector("#filter-input");
 let data = [];
 
+// remove function did not work proper in this way
+
 // const writeData = (data = []) => {
 //   let elements = "";
 
@@ -20,6 +22,7 @@ let data = [];
 //   postContainer.innerHTML = elements;
 // };
 
+// a function to write data to screen
 const writeData = (data = []) => {
   const postContainer = document.querySelector(".posts");
 
@@ -33,6 +36,7 @@ const writeData = (data = []) => {
   });
 };
 
+// fetch api with axios
 const getPosts = async () => {
   try {
     const res = await axios.get(
@@ -50,6 +54,8 @@ const getPosts = async () => {
 };
 
 getPosts();
+
+// to filter we listen every key
 filterInputElement.addEventListener("keyup", (e) => {
   const value = e.target.value.toLowerCase();
   const filteredData = data.filter((image) => {
@@ -58,6 +64,7 @@ filterInputElement.addEventListener("keyup", (e) => {
   writeData(filteredData);
 });
 
+// to createhtml
 const createHTML = (image) => {
   const flipCardEl = document.createElement("div");
   flipCardEl.classList.add("flip-card");
@@ -96,15 +103,3 @@ const createHTML = (image) => {
 
   return flipCardEl;
 };
-
-// `<div class="flip-card">
-// //     <div class="flip-card-inner">
-// //       <div class="flip-card-front">
-// //         <img src=${image.thumbnailUrl} alt="image" style="width:150px;height:150px;">
-// //       </div>
-// //       <div class="flip-card-back">
-// //       <span id="remove">❌</span>
-// //         <p>${image.title}</p>
-// //       </div>
-// //     </div>
-// //   </div>`;
