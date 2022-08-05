@@ -49,10 +49,11 @@
   }
 
 #remove {
-  display: flex;
-  text-align: end;
-  justify-content: right;
-  margin: 10px 10px;
+    float: right;
+    margin-right: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: small;
 }
 
 #filter-span {
